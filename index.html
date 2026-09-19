@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The CEO's Last Meeting</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">MKTG90037 · WEEK 8 · AFTER DARK</div>
+        <h1>☠ The CEO’s Last Meeting</h1>
+        <p>The old CEO is dead. His company is failing. His ghost has summoned your team to one final board meeting: co-create value, decide what to make or buy, and invent something before midnight.</p>
+      </div>
+      <div id="connection" class="status">Offline demo</div>
+    </header>
+
+    <section id="home" class="screen active">
+  <div class="cinematic-shell">
+    <div class="game-logo">
+      <div class="logo-kicker">MKTG90037 · WEEK 8 · AFTER DARK</div>
+      <h1>THE CEO'S <span>LAST</span> MEETING</h1>
+      <p>SOLVE THE BUSINESS. SETTLE HIS SOUL.</p>
+    </div>
+
+    <div class="cinematic-top">
+      <div class="mission-card">
+        <div class="mission-label">CURRENT MISSION</div>
+        <h2>Enter the abandoned boardroom.</h2>
+        <p>The former CEO died before finishing his final strategy. His ghost wants your team to uncover the truth about how the company created value with its stakeholders.</p>
+        <div class="mission-objectives">
+          <span>01 · FIND CLUES</span>
+          <span>02 · CO-CREATE</span>
+          <span>03 · SURVIVE</span>
+        </div>
+      </div>
+      <div class="countdown-card">
+        <div>TIME UNTIL MIDNIGHT</div>
+        <strong id="homeCountdown">09:59</strong>
+      </div>
+    </div>
+
+    
+<div class="office-scene cinematic-art" id="officeScene">
+  <img src="assets/haunted_ceo_boardroom.png" alt="Haunted CEO boardroom" class="office-art">
+
+  <!-- Clickable evidence zones over the cinematic artwork -->
+  <button class="art-hotspot art-portrait" data-clue="portrait" aria-label="Inspect CEO portrait"><span>◉</span><b>PORTRAIT</b></button>
+  <button class="art-hotspot art-computer" data-clue="computer" aria-label="Inspect CEO computer"><span>◉</span><b>CEO'S COMPUTER</b></button>
+  <button class="art-hotspot art-cabinet" data-clue="cabinet" aria-label="Inspect filing cabinet"><span>◉</span><b>FILING CABINET</b></button>
+  <button class="art-hotspot art-safe" data-clue="safe" aria-label="Inspect CEO safe"><span>◉</span><b>CEO'S SAFE</b></button>
+  <button class="art-hotspot art-phone" data-clue="phone" aria-label="Inspect telephone"><span>◉</span><b>PHONE</b></button>
+  <button class="art-hotspot art-table" data-clue="table" aria-label="Inspect meeting table"><span>◉</span><b>MEETING TABLE</b></button>
+
+  <div class="scene-hud">
+    <span>BOARDROOM 03</span>
+    <span>● PARANORMAL ACTIVITY</span>
+  </div>
+</div>
+
+<div class="evidence-strip">
+  <div><b>MISSION</b><span id="evidenceCount">0 / 6 CLUES FOUND</span></div>
+  <div class="evidence-slots" id="evidenceSlots">
+    <span>□</span><span>□</span><span>□</span><span>□</span><span>□</span><span>□</span>
+  </div>
+  <div class="evidence-hint">Click objects in the room to investigate.</div>
+</div>
+
+<div class="bottom-command">
+      <div class="clue-note">
+        <div class="note-title">CEO'S NOTE</div>
+        <p>“A company that ignores its stakeholders will eventually be haunted by the value it failed to create.”</p>
+        <span>— R.H.</span>
+      </div>
+
+      <div class="ghost-console">
+        <div class="ghost-avatar">◉</div>
+        <div>
+          <div class="ghost-name">THE GHOST OF THE CEO</div>
+          <p id="ghostMessage">You have one final meeting. Find the evidence. Make the right choice.</p>
+        </div>
+        <button id="homeNext" class="danger-btn" type="button">ENTER ›</button>
+      </div>
+
+      <div class="join-console">
+        <div class="join-title">JOIN THE HAUNTED BOARDROOM</div>
+        <form id="joinForm">
+          <input id="joinCode" maxlength="6" placeholder="ROOM CODE" required>
+          <input id="joinName" maxlength="24" placeholder="YOUR NAME" required>
+          <button class="secondary">JOIN ROOM</button>
+        </form>
+        <button id="hostBtn" class="primary full">CREATE HOST ROOM</button>
+      </div>
+    </div>
+
+    <div class="cinematic-footer">
+      <span>▣ INVENTORY</span><span>⌖ MAP</span><span>♟ TEAM</span><span>◉ HINTS</span><span>⚙ SETTINGS</span>
+      <div id="connection" class="status">Demo mode</div>
+    </div>
+  </div>
+
+  <div id="clueModal" class="clue-modal hidden">
+    <div class="clue-modal-card">
+      <button id="closeClue" class="close-clue" type="button">×</button>
+      <div class="clue-kicker">EVIDENCE RECOVERED</div>
+      <h2 id="clueTitle">Clue</h2>
+      <p id="clueBody"></p>
+      <div id="clueConcept" class="clue-concept"></div>
+    </div>
+  </div>
+</section>
+
+    <section id="lobby" class="screen">
+      <div class="layout">
+        <div class="main card">
+          <div class="roomline">
+            <div><span class="muted">ROOM</span><strong id="roomCodeDisplay">------</strong></div>
+            <div><span class="muted">PLAYERS</span><strong id="playerCount">0</strong></div>
+          </div>
+          <div class="gadget-strip"><div class="gadget"><span class="gicon">📟</span><b>EMF METER</b><span class="gvalue">03</span></div><div class="gadget"><span class="gicon">📻</span><b>GHOST RADIO</b><span class="gvalue">STATIC</span></div><div class="gadget"><span class="gicon">📹</span><b>CAM 03</b><span class="gvalue">● LIVE</span></div><div class="gadget"><span class="gicon">🔐</span><b>CEO SAFE</b><span class="gvalue">LOCKED</span></div></div><div class="haunt-stage"><div class="window">☾</div><div class="portrait"><div>◉ ◉<br>—</div><small>THE FORMER CEO</small></div><div class="desk">THE LAST BOARD MEETING <i>☕</i></div></div><div id="hostControls" class="host-only">
+            <div class="qrbox">
+              <div id="qrcode"></div>
+              <small>Students can scan to open the join page.</small>
+            </div>
+            <div>
+              <h2>The Boardroom Is Full</h2>
+              <p>The ghost is waiting. When everyone has arrived, begin the final meeting.</p>
+              <button id="startBtn" class="primary">Enter the Meeting →</button>
+            </div>
+          </div>
+          <div id="playerLobby" class="player-only">
+            <h2>You're in!</h2>
+            <p>Wait for the host to start the mission.</p>
+          </div>
+        </div>
+        <aside class="card">
+          <h3>Players</h3>
+          <div id="playerList"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="game" class="screen"><div class="warning-banner">⚠️ PARANORMAL BOARDROOM ALERT · THE CEO IS PRESENT</div><div class="gadget-strip in-game"><div class="gadget"><span class="gicon">📟</span><b>EMF</b><span class="gvalue">07</span></div><div class="gadget"><span class="gicon">📻</span><b>RADIO</b><span class="gvalue">…</span></div><div class="gadget"><span class="gicon">📹</span><b>CAM 03</b><span class="gvalue">●</span></div><div class="gadget"><span class="gicon">🔐</span><b>SAFE</b><span class="gvalue">?</span></div></div>
+      <div class="game-head card">
+        <div><span class="muted">ROUND</span><strong id="roundNo">1</strong><span class="muted"> / 3</span></div>
+        <div id="timer">60</div>
+        <div><span class="muted">TEAM</span><strong id="teamName">—</strong></div>
+      </div>
+      <div class="layout">
+        <div class="main">
+          <div class="card challenge">
+            <div class="pill" id="roundTag">CO-DESIGN</div>
+            <h2 id="challengeTitle">Loading challenge…</h2>
+            <p id="challengeText"></p>
+            <div id="choices"></div>
+            <div id="innovationInput" class="hidden">
+              <textarea id="ideaText" maxlength="240" placeholder="Describe your team's innovation in 1–2 sentences…"></textarea>
+            </div>
+            <button id="submitBtn" class="primary">Submit answer</button>
+            <div id="submitted" class="notice hidden">Submitted! Watch the room.</div>
+          </div>
+          <div class="card feed">
+            <h3>👁️ The ghost is watching</h3>
+            <div id="activity"></div>
+          </div>
+        </div>
+        <aside class="card">
+          <h3>☠ Survival leaderboard</h3>
+          <div id="leaderboard"></div>
+          <div class="divider"></div>
+          <h3>Concepts</h3>
+          <ul class="concepts">
+            <li><b>DART:</b> dialogue, access, risk-benefits, transparency</li>
+            <li><b>Co-design:</b> customer-centric contribution</li>
+            <li><b>Co-production:</b> customer tasks in delivery/usage</li>
+            <li><b>Transaction costs:</b> safeguarding, adaptation, measurement</li>
+            <li><b>Open innovation:</b> ideas from customers, competitors, lead users and partners</li>
+          </ul>
+        </aside>
+      </div>
+      <div id="hostGameControls" class="host-controls card">
+        <button id="nextBtn" class="secondary">Next round →</button>
+        <button id="endBtn" class="ghost">End & show results</button>
+      </div>
+    </section>
+
+    <section id="results" class="screen">
+      <div class="card results">
+        <div class="pill">☠ THE GHOST HAS JUDGED YOU</div>
+        <h2>The meeting is over.</h2>
+        <p>Use the results to debrief the class: <b>Why did your team choose that governance arrangement?</b></p>
+        <div id="finalBoard"></div>
+        <button id="againBtn" class="primary">Back to home</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
